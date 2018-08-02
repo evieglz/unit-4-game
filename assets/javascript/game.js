@@ -6,16 +6,23 @@
 // create a var loop for random numberts
 // number should be between 19-120
 $(document).ready(function(){
-  var Random= Math.floor(Math.random()*102+18)
+  var Random= Math.floor(Math.random()*101+19)
+  
+  
+  var x = document.getElementById("myAudio"); 
+  // x.play()
 
+  $(".gemsImage").on("click", function(){
+    x.play();
+})
 // select a random number to be shown at the start of the page
 $("#points").text(Random);
 
 // number should be between 1-12
-var num1= Math.floor(Math.random()*9+3);
-var num2= Math.floor(Math.random()*9+3);
-var num3= Math.floor(Math.random()*9+3);
-var num4= Math.floor(Math.random()*9+3);
+var num1= Math.floor(Math.random()*11+1);
+var num2= Math.floor(Math.random()*11+1);
+var num3= Math.floor(Math.random()*11+1);
+var num4= Math.floor(Math.random()*11+1);
 
 // create variables for the tallies/and gems (with a 0 variable)
 var userTotal= 0;
@@ -28,13 +35,13 @@ $("#losses").text(losses);
 
 // create a reset function
 function reset() {
-  Random=Math.floor(Math.random()*102+18);
+  Random=Math.floor(Math.random()*101+19);
   console.log(Random);
-  $("#box2").text(Random);
-  num1= Math.floor(Math.random()*9+3);
-  num2= Math.floor(Math.random()*9+3);
-  num3= Math.floor(Math.random()*9+3);
-  num4= Math.floor(Math.random()*9+3);
+  $("#points").text(Random);
+  num1= Math.floor(Math.random()*11+1);
+  num2= Math.floor(Math.random()*11+1);
+  num3= Math.floor(Math.random()*11+1);
+  num4= Math.floor(Math.random()*11+1);
   userTotal= 0;
   $("#usertotal").text(userTotal);
 }
@@ -59,7 +66,7 @@ function lose(){
 // gem id "#one"
 $("#one").on("click", function(){
   userTotal= userTotal + num1;
-  console.log("New usertotal" + userTotal);
+  console.log("New usertotal=" + userTotal);
   $("#usertotal").text(userTotal);
   // add wins/losses
   if (userTotal == Random){
@@ -112,7 +119,4 @@ $("#four").on("click", function(){
   }
 })
   // See about adding audio to the game...  
-  var audioElement = document.createElement("audio");
-        audioElement.setAttribute("src", "Assets/captainplanet24.mp3");
-
 });
